@@ -1,0 +1,21 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "value": "uksouth"
+        },
+        "name": {
+            "value": "PROD-LB-RDS"
+        },
+        "sku": {
+            "value": "Basic"
+        },
+        "subnetId": {
+            "value": "/subscriptions/15fae3c7-14e6-47e4-8610-f9d56afb5aad/resourceGroups/PROD-RG-S2SVPN/providers/Microsoft.Network/virtualNetworks/PROD-BROM-VNET01/subnets/PROD-BROM-SUB-INT-SERVERS"
+        },
+        "privateIPAllocationMethod": {
+            "value": "Dynamic"
+        }
+    }
+}

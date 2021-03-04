@@ -1,0 +1,136 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "virtualMachineName": {
+            "value": "PROD-VM-SENT01"
+        },
+        "virtualMachineRG": {
+            "value": "PROD-RG-SENTINEL"
+        },
+        "tags": {
+            "value": {
+                "billTo": "ProgrammeOne",
+                "projectName":"Sentinel"
+            }
+        },
+        "postgresDBName": { 
+            "value": "sentinelDB"
+        },
+        "virtualNetworkId": {
+            "value": "/subscriptions/15fae3c7-14e6-47e4-8610-f9d56afb5aad/resourceGroups/PROD-RG-S2SVPN/providers/Microsoft.Network/virtualNetworks/PROD-BROM-VNET01"
+        },
+        "adminPassword": {
+            "value": "fuhgmr5zac5hayurs2!"
+        },
+        "administratorLoginPassword": {
+            "value": "fuhgmr5zac5hayurs2!"
+        },
+        "version": {
+            "value": "11"
+        },
+        "location": {
+            "value": "uksouth"
+        },
+        
+        "networkSecurityGroupRules": {
+            "value": [
+                {
+                    "name": "RDP",
+                    "properties": {
+                        "priority": 300,
+                        "protocol": "TCP",
+                        "access": "Allow",
+                        "direction": "Inbound",
+                        "sourceAddressPrefix": "*",
+                        "sourcePortRange": "*",
+                        "destinationAddressPrefix": "*",
+                        "destinationPortRange": "3389"
+                    }
+                },
+                {
+                    "name": "HTTPS",
+                    "properties": {
+                        "priority": 320,
+                        "protocol": "TCP",
+                        "access": "Allow",
+                        "direction": "Inbound",
+                        "sourceAddressPrefix": "*",
+                        "sourcePortRange": "*",
+                        "destinationAddressPrefix": "*",
+                        "destinationPortRange": "443"
+                    }
+                },
+                {
+                    "name": "HTTP",
+                    "properties": {
+                        "priority": 340,
+                        "protocol": "TCP",
+                        "access": "Allow",
+                        "direction": "Inbound",
+                        "sourceAddressPrefix": "*",
+                        "sourcePortRange": "*",
+                        "destinationAddressPrefix": "*",
+                        "destinationPortRange": "80"
+                    }
+                }
+            ]
+        },
+        "subnetName": {
+            "value": "PROD-BROM-SUB-INT-SERVERS"
+        },
+        
+        "publicIpAddressType": {
+            "value": "Dynamic"
+        },
+        "publicIpAddressSku": {
+            "value": "Basic"
+        },
+        "osDiskType": {
+            "value": "Premium_LRS"
+        },
+        "virtualMachineSize": {
+            "value": "Standard_B4ms"
+        },
+        "adminUsername": {
+            "value": "sentineladmin"
+        },
+        "diagnosticsStorageAccountType": {
+            "value": "Standard_LRS"
+        },
+        "diagnosticsStorageAccountKind": {
+            "value": "Storage"
+        },
+        "skuName": {
+            "value": "GP_Gen5_2"
+        },
+        "skuTier": {
+            "value": "GeneralPurpose"
+        },
+        "skuCapacity": {
+            "value": 2
+        },
+        "skuFamily": {
+            "value": "Gen5"
+        },
+        "skuSizeMB": {
+            "value": 102400
+        },
+        "backupRetentionDays": {
+            "value": 35
+        },
+        "geoRedundantBackup": {
+            "value": "Disabled"
+        },
+        "storageAutoGrow": {
+            "value": "Enabled"
+        },
+        "administratorLogin": {
+            "value": "sentineladmin"
+        },
+        
+        "previewFeature": {
+            "value": ""
+        }
+    }
+}

@@ -1,0 +1,82 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "value": "uksouth"
+        },
+        "networkSecurityGroupName": {
+            "value": "PROD-ACTIVEH-NSG"
+        },
+        "networkSecurityGroupRules": {
+            "value": []
+        },
+        "subnetName": {
+            "value": "PROD-BROM-SUB-EXT-SERVERS"
+        },
+        "virtualNetworkId": {
+            "value": "/subscriptions/15fae3c7-14e6-47e4-8610-f9d56afb5aad/resourceGroups/PROD-RG-S2SVPN/providers/Microsoft.Network/virtualNetworks/PROD-BROM-VNET01"
+        },
+        "virtualMachineName": {
+            "type": "array",
+            "value": [
+                "PROD-VM-TIPS01",
+                "PROD-VM-TIPS02",
+                "PROD-VM-CWP01"
+            ]
+        },
+        "virtualMachineRG": {
+            "value": "PROD-RG-ACTIVEH"
+        },
+        "osDiskType": {
+            "value": "Premium_LRS"
+        },
+        "virtualMachineSize": {
+            "value": "Standard_B2ms"
+        },
+        "adminUsername": {
+            "value": "azureadmin"
+        },
+        "adminPassword": {
+            "reference": {
+                "keyVault": {
+                    "id": "/subscriptions/15fae3c7-14e6-47e4-8610-f9d56afb5aad/resourceGroups/prod-rg-infraservices/providers/Microsoft.Keyvault/vaults/prod-sec-kv01"
+                },
+                "secretName": "azureadmin"
+            }
+        },
+        "diagnosticsStorageAccountName": {
+            "value": "prodrginfraservicesdiag"
+        },
+        "diagnosticsStorageAccountId": {
+            "value": "/subscriptions/15fae3c7-14e6-47e4-8610-f9d56afb5aad/resourceGroups/PROD-RG-INFRASERVICES/providers/Microsoft.Storage/storageAccounts/prodrginfraservicesdiag"
+        },
+        "availabilitySetName": {
+            "value": "PROD-AVS-ACTIVEH"
+        },
+        "availabilitySetPlatformFaultDomainCount": {
+            "value": 2
+        },
+        "availabilitySetPlatformUpdateDomainCount": {
+            "value": 5
+        },
+        "backupVaultName": {
+            "value": "PROD-AZUREVM-RSV"
+        },
+        "backupFabricName": {
+            "value": "Azure"
+        },
+        "backupVaultRGName": {
+            "value": "PROD-RG-AZUREBACKUP"
+        },
+        "backupVaultRGIsNew": {
+            "value": false
+        },
+        "backupPolicyName": {
+            "value": "PROD-VM-BACKUP"
+        },
+        "backupItemName": {
+            "value": "vm;iaasvmcontainerv2;"
+        }
+    }
+}
